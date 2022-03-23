@@ -1,21 +1,47 @@
 {
   "name": "budgetcalculator",
   "version": "1.0.0",
-  "description": "a simple budget, income and expenses, calculator",
-  "main": "index.js",
-  "scripts": {
-    "start": "npm-run-all --parallel build:js build:css bsync",
-    "bsync": "browser-sync start --server --files 'docs/index.html' 'dist/assets/js/*.js' 'dist/assets/scss/*.scss' --no-inject-changes",
-    "build:css": "node-sass -o docs/assets/css dist/assets/scss/style.scss --output-style compressed",
-    "build:js": "uglifyjs dist/assets/js/main.js -o docs/assets/js/scripts.min.js"
+  "description": "a simple budget, income and expenses calculator",
+  "watch": {
+    "build:html": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "html"
+    },
+    "build:js": {
+      "patterns": [
+        "src/assets/js"
+      ],
+      "extensions": "js"
+    },
+    "build:css": {
+      "patterns": [
+        "src/assets/scss"
+      ],
+      "extensions": "scss"
+    }
   },
+  "scripts": {
+    "watch": "npm-watch",
+    "build:css": "sass src/assets/scss/style.scss docs/assets/css/style.css --load-path=node_modules --style=compressed --embed-sources",
+    "build:js": "webpack-cli --config ./webpack.config.js",
+    "build:html": "copy \"src\\index.html\" \"docs\"",
+    "server": "node ./node_modules/http-server/bin/http-server ./docs -o /index.html out",
+    "//": "npm run dev: run this for development work, will run a server, watch for file changes and compile where necessary",
+    "dev": "concurrently \"npm:server\" \"npm:watch*\" "
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.26.12",
-    "concat": "^1.0.3",
-    "node-sass": "^6.0.0",
-    "npm-run-all": "^4.1.5",
-    "uglify-js": "^3.13.9"
+    "concurrently": "^7.0.0",
+    "http-server": "^14.1.0",
+    "jquery": "^3.6.0",
+    "localforage": "^1.10.0",
+    "npm-watch": "^0.11.0",
+    "sass": "^1.49.9",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
   }
 }

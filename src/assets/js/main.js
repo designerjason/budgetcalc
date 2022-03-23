@@ -5,10 +5,18 @@ const App = {
         cost: 0,
         total: 0,
         Items: [],
-        showErrors: false
+        showErrors: false,
+        saveAlert: false
       }
     },
+
+    mounted() {
+      // use localstorage if set, empty if not
+      this.Items = (localStorage.getItem("budgetList")? JSON.parse(localStorage.getItem("budgetList")) : [] )
+    },
+
     methods: {
+      // add from the list
       addItem() {
           this.Items.push(
             { 
@@ -18,16 +26,28 @@ const App = {
           )
       },
       
+      // remove an item from the list
       removeItem(index) {
         this.Items.splice(index, 1);
         this.listEmpty = this.Items.length? false : true;
       },
+
+      // save the current budget list
+      saveBudget() {
+        localStorage.setItem("budgetList", JSON.stringify(this.Items));
+        this.saveAlert = true;
+
+        setTimeout(() => {
+          this.saveAlert = false;
+        }, 1000);
+      }
     },
     
     computed: {
        calcTotal() {
         const decimalPlaces = 2;
         this.total = 0;
+        
         if(!this.listEmpty) {
           this.Items.forEach( e => {
             if(typeof e.cost === 'number') {

@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["../../../src/assets/scss/style.scss"],"names":[],"mappings":"AAAA,UACI,UAGF,UACE","file":"style.css","sourcesContent":[".negative {\r\n    color: #ff0000;\r\n  }\r\n  \r\n  [v-cloak] {\r\n    opacity: 0;\r\n  }\r\n"]}
