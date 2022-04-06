@@ -7,28 +7,34 @@
         <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
         <link rel="manifest" href="site.webmanifest">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A simple & basic, easy to use budget calculator">
     </head>
     <body>
 
-    <div id="app" v-cloak>
-        <h2>Budget Calculator</h2>
-        <p v-if="!Items.length">Add some items!</p>
-        
-        <div v-if="showErrors">Something is wrong:</div>
-        <table>
-            <tr v-for="(Item, index) in Items" :key="item" :data-index="index">
-            <td><input type="text" placeholder="budget item" v-model="Item.title"></td>
-            <td><input type="number" step=".01" min="0.00" placeholder="0" :class="Item.cost < 0? 'negative':''" v-model.number="Item.cost"></td>
-            <td><button @click="removeItem(index)">X</button></td> 
-            </tr>
-        </table>
-        
-        <button @click="addItem">add Budget Item</button>&nbsp;
-        <button @click="saveBudget">Save</button>
-        <div v-if="saveAlert">budget saved!</div>
-        
-        <div><br><strong>Total: <span :class="total < 0? 'negative':''">{{ calcTotal }}</span>
-        </strong></div>
+        <div id="app" class="app-container" v-cloak>
+            <h2 class="text-600">Budget Calculator</h2>
+            <p v-if="!Items.length">Add some items!</p>
+            
+            <div v-if="showErrors" class="negative">Something is wrong</div>
+            <table class="app-table">
+                <tr v-for="(Item, index) in Items" :key="item" :data-index="index">
+                <td><input type="text" placeholder="budget item" v-model="Item.title"></td>
+                <td><input type="number" step=".01" min="0.00" placeholder="0" :class="Item.cost < 0? 'negative':''" v-model.number="Item.cost"></td>
+                <td><button @click="removeItem(index)" class="btn-close">X</button></td> 
+                </tr>
+            </table>
+            
+            <div class="btn-group">
+                <button @click="addItem" class="btn btn--primary">Add Budget Item</button>
+                <button @click="saveBudget" class="btn btn--primary-dark">Save</button>
+                <div class="btn-group-alert" v-if="saveAlert">budget saved!</div>
+            </div>
+            
+            <div>
+                <h3 class="total">
+                    <span class="text-400">Total:</span> <span :class="total < 0? 'negative':''">{{ calcTotal }}</span>
+                </h3>
+            </div>
         </div>
 
         <script src="https://unpkg.com/vue@next"></script>

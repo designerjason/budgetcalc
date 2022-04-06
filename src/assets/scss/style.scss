@@ -1,7 +1,132 @@
+/*** imports ***/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700&display=swap');
+
+/* variables */
+
+$color-primary: #209cee;
+$color-good: #47ad22;
+$color-bad: #e81123;
+$color-white: #fff;
+
+/*** global settings ***/
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+[v-cloak] {
+  opacity: 0;
+}
+
+.app-container {
+  margin: 0 auto;
+  max-width: 340px;
+}
+
+.app-table {
+  td {
+    padding: 0;
+  }
+}
+
+/*** form inputs ***/
+
+input {
+  border-radius: 3px;
+  border-width: 1px;
+  box-sizing: border-box;
+  padding: 4px 8px;
+}
+
+input[type='text'] {
+  width: 180px;
+}
+
+input[type='number'] {
+  appearance: textfield;
+  width: 80px;
+}
+
+
+/*** fonts  ***/
+
+h2, h3 {
+  color: $color-primary;
+}
+
+.text-400 {
+  font-weight: 400;
+}
+
+.text-600 {
+  font-weight: 600;
+}
+
 .negative {
-    color: #ff0000;
-  }
+  color: $color-bad;
+}
   
-  [v-cloak] {
-    opacity: 0;
+.total {
+  margin: 0;
+}
+
+
+/*** buttons ***/
+
+.btn {
+  background-color: $color-primary;
+  border: none;
+  border-radius: 3px;
+  color: $color-white;
+  font-weight: 600;
+  margin-left: 2px;
+  margin-top: 5px;
+  padding: 8px 12px;
+
+  &:hover, &:focus {
+    background-color: darken($color-primary, 10);
+    cursor: pointer;
   }
+}
+
+.btn-close {
+  background-color: $color-bad;
+  border: none;
+  border-radius: 50%;
+  color: $color-white;
+  font-weight: 700;
+  margin: 0 5px;
+  padding: 5px 8px;
+
+  &:hover, &:focus {
+    background-color: lighten($color-bad, 10);
+    cursor: pointer;
+  }
+}
+
+.btn--primary {
+  background-color: lighten($color-primary, 15);
+  &:hover, &:focus {
+    background-color: $color-primary;
+  }
+}
+
+.btn--primary-dark {
+  background-color: darken($color-primary, 15);
+
+  &:hover, &:focus {
+    background-color: $color-good;
+  }
+}
+
+.btn-group {
+  padding-bottom: 25px;
+  position: relative;
+}
+
+.btn-group-alert {
+  bottom: 0;
+  color: darken($color-good, 10);
+  position: absolute;
+}

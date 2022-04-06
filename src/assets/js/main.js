@@ -48,13 +48,12 @@ const App = {
         const decimalPlaces = 2;
         this.total = 0;
         
-        if(!this.listEmpty) {
-          this.Items.forEach( e => {
-            if(typeof e.cost === 'number') {
-              this.total += parseFloat(e.cost)
-            }
-          });
-        }
+        this.Items.forEach( e => {
+          if(typeof e.cost === 'number') {
+            this.total += parseFloat(e.cost)
+          }
+        });
+
         return Number(Math.round(parseFloat(this.total + 'e' + decimalPlaces)) + 'e-' + decimalPlaces).toFixed(decimalPlaces);
       }
     }
