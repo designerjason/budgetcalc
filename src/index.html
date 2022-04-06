@@ -17,10 +17,10 @@
             
             <div v-if="showErrors" class="negative">Something is wrong</div>
             <table class="app-table">
-                <tr v-for="(Item, index) in Items" :key="item" :data-index="index">
-                <td><input type="text" placeholder="budget item" v-model="Item.title"></td>
-                <td><input type="number" step=".01" min="0.00" placeholder="0" :class="Item.cost < 0? 'negative':''" v-model.number="Item.cost"></td>
-                <td><button @click="removeItem(index)" class="btn-close">X</button></td> 
+                <tr v-for="(Item, index) in Items" :key="item" :data-index="index" class="fade-in">
+                    <td><input type="text" placeholder="budget item" v-model="Item.title"></td>
+                    <td><input type="number" step=".01" min="0.00" placeholder="0" :class="Item.cost < 0? 'negative':''" v-model.number="Item.cost"></td>
+                    <td><button @click="removeItem(index)" class="btn-close">&#43;</button></td> 
                 </tr>
             </table>
             
