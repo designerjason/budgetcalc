@@ -8,6 +8,8 @@ $color-primary: #209cee;
 $color-good: #47ad22;
 $color-bad: #e81123;
 $color-white: #fff;
+$color-black: #000;
+$color-lightgrey: #969696;
 
 /*** global settings ***/
 
@@ -139,6 +141,11 @@ h2, h3 {
   position: absolute;
 }
 
+.icon-drag {
+  path {
+    fill: $color-lightgrey;
+  }
+}
 
 /*** animations ***/
 

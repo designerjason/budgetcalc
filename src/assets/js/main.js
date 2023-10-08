@@ -1,8 +1,11 @@
+import draggable from 'vuedraggable'
+
 const App = {
     data() {
       return {
         title: '',
         cost: 0,
+        drag: false,
         total: 0,
         Items: [],
         showErrors: false,
@@ -59,4 +62,7 @@ const App = {
     }
   }
   
-  Vue.createApp(App).mount('#app');
+const app = Vue.createApp(App);
+
+  app.component('draggable', draggable);
+  app.mount('#app');
