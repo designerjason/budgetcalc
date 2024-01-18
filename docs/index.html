@@ -32,7 +32,7 @@
                         </td>
                         <td><input type="text" placeholder="budget item" v-model="element.title"></td>
                         <td><input type="number" step=".01" min="0.00" placeholder="0" :class="element.cost < 0? 'negative':''" v-model.number="element.cost"></td>
-                        <td><button @click="removeItem(index)" class="btn-close">&#43;</button></td> 
+                        <td><button @click="removeItem(element)" class="btn-close">&#43;</button></td> 
                     </tr>
                 </template>
                 </draggable>

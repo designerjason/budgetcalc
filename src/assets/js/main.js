@@ -27,8 +27,11 @@ const App = {
     },
 
     // remove an item from the list
-    removeItem(index) {
-      this.Items.splice(index, 1);
+    removeItem(item) {
+      const index = this.Items.indexOf(item);
+      if (index !== -1) {
+        this.Items.splice(index, 1);
+      }
       this.listEmpty = this.Items.length === 0;
     },
 
