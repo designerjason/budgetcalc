@@ -38,7 +38,7 @@ input {
   border-radius: 3px;
   border-width: 1px;
   box-sizing: border-box;
-  padding: 6px 8px;
+  padding: 12px;
 }
 
 input[type='text'] {
@@ -50,10 +50,10 @@ input[type='number'] {
   width: 80px;
 }
 
-
 /*** fonts  ***/
 
-h2, h3 {
+h2,
+h3 {
   color: $color-primary;
 }
 
@@ -68,11 +68,10 @@ h2, h3 {
 .negative {
   color: $color-bad;
 }
-  
+
 .total {
   margin: 0;
 }
-
 
 /*** buttons ***/
 
@@ -85,9 +84,10 @@ h2, h3 {
   margin-left: 2px;
   margin-top: 5px;
   padding: 8px 12px;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: darken($color-primary, 10);
     cursor: pointer;
   }
@@ -105,10 +105,11 @@ h2, h3 {
   margin: 0 5px;
   padding: 0;
   transform: rotate(45deg);
-  transition: background-color .3s;
+  transition: background-color 0.3s;
   width: 30px;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: lighten($color-bad, 10);
     color: $color-white;
     cursor: pointer;
@@ -117,7 +118,8 @@ h2, h3 {
 
 .btn--primary {
   background-color: lighten($color-primary, 15);
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: $color-primary;
   }
 }
@@ -125,7 +127,8 @@ h2, h3 {
 .btn--primary-dark {
   background-color: darken($color-primary, 15);
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: $color-good;
   }
 }
@@ -150,11 +153,16 @@ h2, h3 {
 /*** animations ***/
 
 @keyframes fadein {
-  0%   {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .fade-in {
   animation-name: fadein;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
 }
+
